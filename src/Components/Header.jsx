@@ -1,8 +1,8 @@
 import React from "react";
-
+import logo from "../assets/images/wobot_logo.svg";
 const Header = () => (
-  <header className="bg-gray-800 text-white p-4 text-center">
-    <h1 className="text-xl">Wobot Intelligence Private Limited</h1>
+  <header className="bg-gray-100 p-4 text-center">
+    <img className="w-36 mx-auto md:w-52" draggable="false" src={logo} />
   </header>
 );
 

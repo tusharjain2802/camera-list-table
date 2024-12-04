@@ -23,7 +23,7 @@ function Pagination({ totalItems, itemsPerPage, currentPage, onPageChange }) {
         <button
           key={number}
           className={`px-3 py-1 border rounded ${
-            number === currentPage ? "bg-blue-500 text-white" : "bg-gray-200"
+            number === currentPage ? "bg-blue-600 text-white" : "bg-gray-200"
           }`}
           onClick={() => onPageChange(number)}
         >

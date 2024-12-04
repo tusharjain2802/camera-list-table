@@ -99,7 +99,7 @@ function CameraTable() {
               <td className="border border-gray-300 p-2">{camera.status}</td>
               <td className="border border-gray-300 p-2">
                 <button
-                  className="text-blue-500"
+                  className="text-blue-600"
                   onClick={() => handleStatusToggle(camera.id, camera.status)}
                 >
                   Toggle Status

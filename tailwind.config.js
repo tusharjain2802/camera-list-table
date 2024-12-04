@@ -18,6 +18,7 @@ export default {
         'poppins': ['poppins', 'sans-serif'],
         'anton': ['Anton', 'sans-serif'],
         'sedan': ['Sedan', 'sans-serif'],
+        'inter': ['Inter', 'sans-serif'],
       }
     },
 

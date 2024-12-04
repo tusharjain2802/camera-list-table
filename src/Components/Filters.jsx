@@ -16,12 +16,13 @@ function Filters({ onFilter }) {
   };
 
   return (
+    <div>
     <form
-      className="flex flex-wrap gap-4 mb-4 p-4 bg-gray-100 rounded shadow"
+      className="flex flex-wrap gap-4 mb-4 p-4 "
       onSubmit={handleSubmit}
     >
       <div>
-        <label className="block text-sm font-medium text-gray-700">Location</label>
+        <label className="block text-sm text-gray-700">Location</label>
         <input
           type="text"
           value={location}
@@ -30,7 +31,7 @@ function Filters({ onFilter }) {
         />
       </div>
       <div>
-        <label className="block text-sm font-medium text-gray-700">Status</label>
+        <label className="block text-sm text-gray-700">Status</label>
         <select
           value={status}
           onChange={(e) => setStatus(e.target.value)}
@@ -44,7 +45,7 @@ function Filters({ onFilter }) {
       <div className="flex items-end gap-2">
         <button
           type="submit"
-          className="bg-blue-500 text-white px-4 py-2 rounded shadow"
+          className="bg-blue-600 text-white px-4 py-2 rounded shadow"
         >
           Apply
         </button>
@@ -57,6 +58,7 @@ function Filters({ onFilter }) {
         </button>
       </div>
     </form>
+    </div>
   );
 }
 
