@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'poppins';
+    src: url('./assets/fonts/Poppins-Regular.ttf')format("ttf");
+}
+
+@font-face {
+    font-family: "Anton";
+    src: url("./assets/fonts/Anton-Regular.ttf") format("ttf");
+}
+
+@font-face {
+    font-family: "Sedan";
+    src: url("./assets/fonts/Sedan-Regular.ttf") format("ttf");
+}
+
