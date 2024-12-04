@@ -1,9 +1,15 @@
-import React from 'react'
+import React from "react";
+import CameraTable from "../Components/CameraTable";
 
-const Home = () => {
+function HomePage() {
   return (
-    <div>Home</div>
-  )
+    <div className="min-h-screen flex flex-col">
+      <main className="flex-grow p-6">
+        <CameraTable />
+      </main>
+      
+    </div>
+  );
 }
 
-export default Home  
+export default HomePage;
