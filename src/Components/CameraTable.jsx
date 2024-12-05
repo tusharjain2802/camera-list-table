@@ -6,6 +6,7 @@ import { MdBlockFlipped } from "react-icons/md";
 import { FaRegCircleCheck } from "react-icons/fa6";
 import { PiWarningCircle } from "react-icons/pi";
 import { RiCloudLine } from "react-icons/ri";
+import { RiDeleteBin6Line } from "react-icons/ri";
 import Device from "../assets/images/device.svg";
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
@@ -15,7 +16,7 @@ function CameraTable() {
   const [filteredCameras, setFilteredCameras] = useState([]);
   const [selectedCameras, setSelectedCameras] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 5;
+  const [itemsPerPage, setItemsPerPage] = useState(10);
 
   useEffect(() => {
     fetchCameras().then((data) => {
@@ -158,13 +159,14 @@ function CameraTable() {
       </table>
       <div className="flex justify-between mt-4">
         <button className="bg-red-500 text-white py-1 px-4 rounded" onClick={handleDelete}>
-          Delete Selected
+        <RiDeleteBin6Line />
         </button>
         <Pagination
           totalItems={filteredCameras.length}
           itemsPerPage={itemsPerPage}
           currentPage={currentPage}
           onPageChange={setCurrentPage}
+          setItemsPerPage={setItemsPerPage}
         />
       </div>
     </div>
