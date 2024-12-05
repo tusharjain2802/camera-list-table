@@ -23,7 +23,7 @@ This project is a frontend React application that displays a list of cameras wit
    npm install
 
 3. Run the application:
- ```bash
+    ```bash
    npm run dev
 
 4. Access the application at http://localhost:5173/
