@@ -1,63 +1,77 @@
 import React, { useState } from "react";
+import { HiOutlineMagnifyingGlass } from "react-icons/hi2";
+import Status from "../assets/images/status.svg";
+import { GoLocation } from "react-icons/go";
 
 function Filters({ onFilter }) {
   const [location, setLocation] = useState("");
   const [status, setStatus] = useState("");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    onFilter({ location, status });
-  };
-
-  const handleReset = () => {
-    setLocation("");
-    setStatus("");
-    onFilter({ location: "", status: "" });
-  };
-
   return (
     <div>
-    <form
-      className="flex flex-wrap gap-4 mb-4 p-4 "
-      onSubmit={handleSubmit}
-    >
-      <div>
-        <label className="block text-sm text-gray-700">Location</label>
-        <input
-          type="text"
-          value={location}
-          onChange={(e) => setLocation(e.target.value)}
-          className="mt-1 block w-full border border-gray-300 rounded py-2 px-3 shadow-sm"
+
+      <div className="flex font-inter mb-5 justify-between">
+        <div>
+          <p className="text-[22px]">Cameras</p>
+          <p className="text-[14px] text-[#545454]">Manage your cameras here.</p>
+        </div>
+
+        <div className="relative">
+          <div className="absolute inset-y-0 right-3 top-0 pl-3 flex items-center pointer-events-none">
+            <HiOutlineMagnifyingGlass className="text-gray-700 " size={20} />
+          </div>
+          <input type="text"
+            placeholder="search"
+            className="bg-[#F0F0F0] py-3 px-2 rounded-xl focus:outline-none" />
+        </div>
+
+      </div>
+      <div className="bg-white rounded-t-xl flex justify-start">
+
+      <div className="relative">
+      <select
+        value={status}
+        onChange={(e) => setStatus(e.target.value)}
+        className="mt-1 block w-[188px] mr-6 border rounded py-2 pl-8 shadow-sm border-[#CED4DA] text-[#7E7E7E] focus:outline-none"
+      >
+        <option value="" disabled>
+          Location
+        </option>
+        <option value="All">All</option>
+        <option value="Active">Active</option>
+        <option value="Inactive">Inactive</option>
+      </select>
+
+      {/* Satellite Icon */}
+      <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+      <GoLocation className="text-[#7E7E7E]" />
+      </div>
+    </div>
+
+      <div className="relative">
+      <select
+        value={status}
+        onChange={(e) => setStatus(e.target.value)}
+        className="mt-1 block w-[148px] border rounded py-2 pl-8 shadow-sm border-[#CED4DA] text-[#7E7E7E] focus:outline-none"
+      >
+        <option value="" disabled>
+          Status
+        </option>
+        <option value="All">All</option>
+        <option value="Active">Active</option>
+        <option value="Inactive">Inactive</option>
+      </select>
+
+      {/* Satellite Icon */}
+      <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+        <img
+          src={Status}
+          alt="Satellite"
+          className="w-5 h-5"
         />
       </div>
-      <div>
-        <label className="block text-sm text-gray-700">Status</label>
-        <select
-          value={status}
-          onChange={(e) => setStatus(e.target.value)}
-          className="mt-1 block w-full border border-gray-300 rounded py-2 px-3 shadow-sm"
-        >
-          <option value="">All</option>
-          <option value="Active">Active</option>
-          <option value="Inactive">Inactive</option>
-        </select>
-      </div>
-      <div className="flex items-end gap-2">
-        <button
-          type="submit"
-          className="bg-blue-600 text-white px-4 py-2 rounded shadow"
-        >
-          Apply
-        </button>
-        <button
-          type="button"
-          onClick={handleReset}
-          className="bg-gray-400 text-white px-4 py-2 rounded shadow"
-        >
-          Reset
-        </button>
-      </div>
-    </form>
+    </div>
+    </div>
     </div>
   );
 }
