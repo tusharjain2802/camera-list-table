@@ -152,9 +152,9 @@ function CameraTable() {
                   }
                 </div>
               </td>
-              <td className="border border-gray-300 p-2">{camera.location}</td>
-              <td className="border border-gray-300 p-2">{camera.recorder || "-"}</td>
-              <td className="border border-gray-300 p-2">
+              <td className="border max-w-[130px] border-gray-300 p-2">{camera.location}</td>
+              <td className="border max-w-[130px] border-gray-300 p-2">{camera.recorder || "-"}</td>
+              <td className="border max-w-[130px] border-gray-300 p-2">
                 {camera.tasks === 0 ? "N/A" : camera.tasks.toString() + " Tasks"}
               </td>
               <td>
@@ -163,7 +163,7 @@ function CameraTable() {
               </td>
               <td className="border text-center border-gray-300 p-2">
                 <button
-                  className=""
+                  className="flex justify-center"
                   onClick={() => handleStatusToggle(camera.id, camera.status)}
                 >
                   {camera.status === "Active" ?
