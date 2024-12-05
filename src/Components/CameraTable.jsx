@@ -40,14 +40,26 @@ function CameraTable() {
 
   };
 
-  const handleFilter = (filters) => {
-    const { location, status } = filters;
-    const filtered = cameras.filter(
-      (camera) =>
-        (!location || camera.location === location) &&
-        (!status || camera.status === status)
-    );
+  const uniqueLocations = [...new Set(cameras.map((camera) => camera.location))];
+
+  const handleFilter = ({ location, status, searchTerm }) => {
+    let filtered = [...cameras];
+    if (location) {
+      filtered = filtered.filter((camera) => camera.location === location);
+    }
+    if (status) {
+      filtered = filtered.filter((camera) => camera.status === status);
+    }
+    if (searchTerm) {
+      filtered = filtered.filter(
+        (camera) =>
+          camera.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          camera.location.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          (camera.recorder && camera.recorder.toLowerCase().includes(searchTerm.toLowerCase()))
+      );
+    }
     setFilteredCameras(filtered);
+    setCurrentPage(1);
   };
 
   const indexOfLastItem = currentPage * itemsPerPage;
@@ -56,7 +68,7 @@ function CameraTable() {
 
   return (
     <div className="">
-      <Filters onFilter={handleFilter} />
+      <Filters onFilter={handleFilter} locations={uniqueLocations} />
       <table className="w-full border-collapse text-[#545454] text-left border bg-white rounded-b-xl border-gray-200">
         <thead>
           <tr className="bg-gray-100">
