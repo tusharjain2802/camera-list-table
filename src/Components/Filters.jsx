@@ -26,13 +26,13 @@ function Filters({ onFilter }) {
         </div>
 
       </div>
-      <div className="bg-white rounded-t-xl flex justify-start">
+      <div className="bg-white py-2 rounded-t-xl flex justify-start">
 
-      <div className="relative">
+      <div className="relative ml-3">
       <select
         value={status}
         onChange={(e) => setStatus(e.target.value)}
-        className="mt-1 block w-[188px] mr-6 border rounded py-2 pl-8 shadow-sm border-[#CED4DA] text-[#7E7E7E] focus:outline-none"
+        className="mt-1 block w-[188px] mr-6 border rounded py-2 pl-8 shadow-sm border-[#CED4DA] truncate text-[#7E7E7E] focus:outline-none"
       >
         <option value="" disabled>
           Location
@@ -42,7 +42,6 @@ function Filters({ onFilter }) {
         <option value="Inactive">Inactive</option>
       </select>
 
-      {/* Satellite Icon */}
       <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
       <GoLocation className="text-[#7E7E7E]" />
       </div>
@@ -52,7 +51,7 @@ function Filters({ onFilter }) {
       <select
         value={status}
         onChange={(e) => setStatus(e.target.value)}
-        className="mt-1 block w-[148px] border rounded py-2 pl-8 shadow-sm border-[#CED4DA] text-[#7E7E7E] focus:outline-none"
+        className="mt-1 block w-[148px] border truncate rounded py-2 pl-8 shadow-sm border-[#CED4DA] text-[#7E7E7E] focus:outline-none"
       >
         <option value="" disabled>
           Status
@@ -62,7 +61,6 @@ function Filters({ onFilter }) {
         <option value="Inactive">Inactive</option>
       </select>
 
-      {/* Satellite Icon */}
       <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
         <img
           src={Status}

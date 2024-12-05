@@ -8,6 +8,7 @@ export const fetchCameras = async () => {
       Authorization: `Bearer 4ApVMIn5sTxeW7GQ5VWeWiy`,
     },
   });
+  console.log(response.data.data)
   return response.data.data;
 };
 

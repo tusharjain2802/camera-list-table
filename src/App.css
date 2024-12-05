@@ -1,3 +1,7 @@
 img {
     pointer-events: none;
   }
+
+table, th, td{
+  border: none;
+}
