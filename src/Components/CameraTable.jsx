@@ -37,8 +37,14 @@ function CameraTable() {
   };
 
   const handleDelete = () => {
-
+    const remainingCameras = cameras.filter(
+      (camera) => !selectedCameras.includes(camera.id)
+    );
+    setCameras(remainingCameras);
+    setFilteredCameras(remainingCameras);
+    setSelectedCameras([]); 
   };
+  
 
   const uniqueLocations = [...new Set(cameras.map((camera) => camera.location))];
 
@@ -93,7 +99,7 @@ function CameraTable() {
             <th className="border text-[#7E7E7E] uppercase font-[500] text-[14px] bg-white border-gray-300 p-2">Actions</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="items-center">
           {currentItems.map((camera) => (
             <tr key={camera.id}>
               <td className="border border-gray-300 p-2">
@@ -107,7 +113,7 @@ function CameraTable() {
                         : prev.filter((id) => id !== camera.id)
                     )
                   }
-                  className="scale-150 ml-2"
+                  className="scale-150 mb-5 ml-2"
                 />
               </td>
               <td className="border flex gap-3 items-center border-gray-300 p-2">
@@ -171,7 +177,7 @@ function CameraTable() {
       </table>
       <div className="flex justify-between mt-4">
         <button className="bg-red-500 text-white py-1 px-4 rounded" onClick={handleDelete}>
-        <RiDeleteBin6Line />
+          <RiDeleteBin6Line />
         </button>
         <Pagination
           totalItems={filteredCameras.length}
